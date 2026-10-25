@@ -2077,7 +2077,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
         long[] mem = memUsedOfTotalMb();
         if (mem != null) appendStat(line, getString(R.string.stats_memory, mem[0], mem[1]));
         String free = formatGb(getResources(), Environment.getDataDirectory().getFreeSpace());
-        if (!free.isEmpty()) appendStat(line, getString(R.string.stats_storage, free));
+                if (!free.isEmpty()) { if (line.length() > 0) line.append('\n'); line.append(getString(R.string.stats_storage, free)); }
         return StatsText.forLocale(line.toString(), getResources().getConfiguration().getLocales().get(0));
     }
 
